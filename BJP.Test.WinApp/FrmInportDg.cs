@@ -432,7 +432,11 @@ namespace BJP.Test.WinApp
 
             MessageBox.Show( "CSV文件处理完毕" );
 
-            //InportData.InportLineInfo()
+            //生成新的线路信息
+            SQL = "select lname from linestand group by lname";
+            DbHelper dbHelper = new DbHelper();
+            DataTable dtLine = dbHelper.Fill( SQL );
+            InportData.InportLineInfo( dtLine, @"f:\临时文件\lineinfo.sql" );
 
         }
 
