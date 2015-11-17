@@ -378,8 +378,8 @@ namespace BJP.Test.WinApp
             arrFiles = Directory.GetFiles( FileDir, "*.csv" );  //目录内的所有车辆文件
             int totalstand = 1;
             int Slno = 1;   //站序
-            int Slno_X = 0;
-            int Slno_S = 0;
+            int Slno_X = 1;
+            int Slno_S = 1;
             string IsMain = "0";
             string SName = string.Empty;  //站名
             string Slon = string.Empty;   //经度
