@@ -137,7 +137,6 @@ namespace BJP.Framework.Utility
             }
         }
 
-       
         /// <summary>
         /// BCD码转换16进制(压缩BCD)
         /// </summary>
@@ -205,6 +204,35 @@ namespace BJP.Framework.Utility
             DateTime dtime = DateTime.ParseExact( datestring, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture );
             
             return   dtime.ToString( formatestring, DateTimeFormatInfo.InvariantInfo );
+        }
+
+        /// <summary>
+        /// 将指定字符串的首字母转成大写，其它的小写
+        /// </summary>
+        /// <param name="convertString">要转换的字符串</param>
+        /// <returns></returns>
+        public static string ConvertFirstUpper(string convertString)
+        {
+            string temp = convertString.ToLower();    //先全部转成小写
+
+            string after = temp.Substring(0, 1).ToUpper();
+            after = after + temp.Substring(1, temp.Length-1);
+
+            return after;
+        }
+
+        public static string SplitAndToFirstUpper(string splitString, char splitChar)
+        {
+            string[] tempSplit = splitString.Split(splitChar);
+
+            string temp = tempSplit[0].ToLower();    //首单词全部小写
+            for (int i = 1; i <= tempSplit.Length-1; i++)
+            {
+                if (tempSplit[i] != splitChar.ToString())
+                temp += ConvertFirstUpper(tempSplit[i]);
+            }
+
+            return temp;
         }
     }
 }
