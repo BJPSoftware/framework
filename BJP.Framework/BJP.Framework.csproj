@@ -48,6 +48,13 @@
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.10.0">
+      <HintPath>E:\Person\Downloads\代码生成器源码V1.2\代码生成器\DLL\Microsoft.VisualStudio.TextTemplating.10.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Person\Downloads\代码生成器源码V1.2\代码生成器\DLL\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
@@ -66,6 +73,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\CreateCode.cs" />
+    <Compile Include="Code\CustomTextTemplatingEngineHost.cs" />
+    <Compile Include="Code\EntityClassInfo.cs" />
+    <Compile Include="Code\EntityClassPropertyInfo.cs" />
+    <Compile Include="Utility\Enumera.cs" />
     <Compile Include="Log\LogHelper.cs" />
     <Compile Include="Net\Tcp\Buffers.cs" />
     <Compile Include="Net\Tcp\BuffList.cs" />

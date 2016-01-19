@@ -221,6 +221,14 @@ namespace BJP.Framework.Utility
             return after;
         }
 
+        /// <summary>
+        /// 将指定的字符串去掉指定的分隔符后合并成一个串
+        /// 如果传入的字符串分隔后只有一个，则全部转成小写
+        /// 如果有多个，则其它的首字母大写，其它的小写
+        /// </summary>
+        /// <param name="splitString">要处理字符串</param>
+        /// <param name="splitChar">分隔符</param>
+        /// <returns></returns>
         public static string SplitAndToFirstUpper(string splitString, char splitChar)
         {
             string[] tempSplit = splitString.Split(splitChar);
@@ -233,6 +241,62 @@ namespace BJP.Framework.Utility
             }
 
             return temp;
+        }
+
+        /// <summary>
+        /// 将转入的数据的类型转换成系统类型
+        /// </summary>
+        /// <param name="sqlType">数据库对应的字段类型</param>
+        /// <param name="language">要转换的语言(C#、Java)</param>
+        /// <returns></returns>
+        public static string SqlserverTypeToSys(string sqlType, codeLanguage codeLanguage)
+        {
+            string sysType = "string";
+            if (codeLanguage == codeLanguage.Java)
+                sysType = "String";
+            switch (sqlType)
+            {
+                case "bigint":
+                    sysType = "long";
+                    break;
+                case "smallint":
+                    sysType = "short";
+                    break;
+                case "int":
+                    sysType = "int";
+                    break;
+                case "uniqueidentifier":
+                    sysType = "Guid";
+                    break;
+                case "smalldatetime":
+                case "datetime":
+                case "date":
+                    sysType = "DateTime";
+                    break;
+                case "float":
+                    sysType = "double";
+                    break;
+                case "real":
+                case "numeric":
+                case "smallmoney":
+                case "decimal":
+                case "money":
+                    sysType = "decimal";
+                    break;
+                case "tinyint":
+                    sysType = "byte";
+                    break;
+                case "bit":
+                    sysType = "bool";
+                    break;
+                case "image":
+                case "binary":
+                case "varbinary":
+                case "timestamp":
+                    sysType = "byte[]";
+                    break;
+            }
+            return sysType;
         }
     }
 }
