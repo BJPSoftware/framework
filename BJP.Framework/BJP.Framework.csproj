@@ -35,21 +35,25 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="HibernatingRhinos.Profiler.Appender.NHibernateLog4Net">
-      <HintPath>..\..\..\维修管理\Code\YC.Maintenance\BJP.FrameWork\Lib\NHProf\HibernatingRhinos.Profiler.Appender.NHibernateLog4Net.dll</HintPath>
+      <HintPath>lib\NHProf\HibernatingRhinos.Profiler.Appender.NHibernateLog4Net.dll</HintPath>
     </Reference>
     <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
-      <HintPath>..\..\..\维修管理\Code\YC.Maintenance\BJP.FrameWork\Lib\NHProf\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
+      <HintPath>lib\NHProf\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.Office">
+      <HintPath>lib\Interop.Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TextTemplating.10.0">
-      <HintPath>E:\Person\Downloads\代码生成器源码V1.2\代码生成器\DLL\Microsoft.VisualStudio.TextTemplating.10.0.dll</HintPath>
+      <HintPath>lib\Microsoft.VisualStudio.TextTemplating.10.0.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -97,6 +101,7 @@
     <Compile Include="Utility\Utility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="lib\NHProf\NHProf.exe.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -121,15 +126,35 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-    <COMReference Include="VBIDE">
-      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>3</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\Interop.Office.dll" />
+    <Content Include="lib\Microsoft.VisualStudio.TextTemplating.10.0.dll" />
+    <Content Include="lib\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll" />
+    <Content Include="lib\NHProf\Acknowledgments.txt" />
+    <Content Include="lib\NHProf\AqiStar.TextBox.dll" />
+    <Content Include="lib\NHProf\Caliburn.Core.dll" />
+    <Content Include="lib\NHProf\Caliburn.PresentationFramework.dll" />
+    <Content Include="lib\NHProf\gudusoft.gsqlparser.dll" />
+    <Content Include="lib\NHProf\HibernatingRhinos.Profiler.Appender.dll" />
+    <Content Include="lib\NHProf\HibernatingRhinos.Profiler.Appender.NHibernateLog4Net.dll" />
+    <Content Include="lib\NHProf\HibernatingRhinos.Profiler.Appender.v4.0.dll" />
+    <Content Include="lib\NHProf\HibernatingRhinos.Profiler.BackEnd.dll" />
+    <Content Include="lib\NHProf\HibernatingRhinos.Profiler.Integration.dll" />
+    <Content Include="lib\NHProf\How to use.txt" />
+    <Content Include="lib\NHProf\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="lib\NHProf\license.txt" />
+    <Content Include="lib\NHProf\log.txt" />
+    <Content Include="lib\NHProf\log4net.dll" />
+    <Content Include="lib\NHProf\Microsoft.Expression.Interactions.dll" />
+    <Content Include="lib\NHProf\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="lib\NHProf\NAppUpdate.Framework.dll" />
+    <Content Include="lib\NHProf\NAppUpdate.Framework.pdb" />
+    <Content Include="lib\NHProf\Newtonsoft.Json.dll" />
+    <Content Include="lib\NHProf\NHProf.exe" />
+    <Content Include="lib\NHProf\System.Windows.Interactivity.dll" />
+    <Content Include="lib\NHProf\Xceed.Wpf.Controls.dll" />
+    <Content Include="lib\NHProf\Xceed.Wpf.DataGrid.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
