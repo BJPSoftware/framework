@@ -254,44 +254,60 @@ namespace BJP.Framework.Utility
             string sysType = "string";
             if (codeLanguage == codeLanguage.Java)
                 sysType = "String";
-            switch (sqlType)
+            switch (sqlType.ToLower())
             {
                 case "bigint":
-                    sysType = "long";
+                    sysType = "Long";
                     break;
                 case "smallint":
-                    sysType = "short";
+                    sysType = "Short";
                     break;
                 case "int":
-                    sysType = "int";
+                    sysType = "Integer";
                     break;
                 case "uniqueidentifier":
-                    sysType = "Guid";
+                    sysType = "String";
                     break;
                 case "smalldatetime":
+                    sysType = "Date";
+                    break;
                 case "datetime":
+                    sysType = "Date";
+                    break;
                 case "date":
-                    sysType = "DateTime";
+                    sysType = "Date";
                     break;
                 case "float":
-                    sysType = "double";
+                    sysType = "Double";
                     break;
                 case "real":
                 case "numeric":
+                    sysType = "BigDecimal";
+                    break;
                 case "smallmoney":
+                    sysType = "BigDecimal";
+                    break;
                 case "decimal":
+                    sysType = "BigDecimal";
+                    break;
                 case "money":
-                    sysType = "decimal";
+                    sysType = "BigDecimal";
                     break;
                 case "tinyint":
-                    sysType = "byte";
+                    sysType = "Integer";
                     break;
                 case "bit":
-                    sysType = "bool";
+                    sysType = "Boolean";
                     break;
                 case "image":
+                    sysType = "byte[]";
+                    break;
                 case "binary":
+                    sysType = "byte[]";
+                    break;
                 case "varbinary":
+                    sysType = "byte[]";
+                    break;
                 case "timestamp":
                     sysType = "byte[]";
                     break;

@@ -12,8 +12,16 @@ namespace BJP.Framework.Code
     {
         public string tableName { get; set; }    //指定的数据表名
         public string className { get; set; }   //要生成的类的名称
+        public string tableComment { get; set; } //类的中文说明
+
+        #region 包名定义
         public string packageName { get; set; }  //指定的包名
+        public string daoPackageName { get; set; }  //指定的dao接口包名
+        public string servicePackageName { get; set; }  //指定的service接口包名
+        #endregion
+
         public DataTable dataTable { get; set; }  //列信息指定的数据表
+        public string excludes { get; set; }   //生成实体时要排除的字段
         public codeLanguage codeLanguage { get; set; }    //转换的编程语言
 
         //指定表的所有列属性
@@ -65,6 +73,11 @@ namespace BJP.Framework.Code
             //生成所有的列
             foreach (DataRow dr in dataTable.Rows)
             {
+
+                int iPos = excludes.IndexOf(dr["name"].ToString());
+                if (iPos>-1)
+                    continue;
+
                 ropertyListTemp.Add(new EntityClassPropertyInfo(dr, codeLanguage));
             }
             this.RopertyList = ropertyListTemp;
