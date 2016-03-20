@@ -18,6 +18,7 @@ namespace BJP.Framework.Code
         public string packageName { get; set; }  //指定的包名
         public string daoPackageName { get; set; }  //指定的dao接口包名
         public string servicePackageName { get; set; }  //指定的service接口包名
+        public string controllerPackageName { get; set; }  //指定的Controller层的包名
         #endregion
 
         public DataTable dataTable { get; set; }  //列信息指定的数据表
