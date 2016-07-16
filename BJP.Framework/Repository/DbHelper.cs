@@ -61,6 +61,10 @@ namespace BJP.Framework.Repository
             dbconn.ConnectionString = connectionString;
             return dbconn;
         }
+
+        public void chkConnection() {
+                Connection.Open();
+        }
         #endregion
 
         #region ExecuteNonQuery
