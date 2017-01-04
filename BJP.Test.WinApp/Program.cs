@@ -19,8 +19,8 @@ namespace BJP.Test.WinApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault( false );
             LogHelper.SetConfig();
-            //Application.Run( new FrmMain() );
-            Application.Run( new FrmInportDg() );
+            Application.Run( new FrmMain() );
+            //Application.Run( new FrmInportDg() );
         }
     }
 }

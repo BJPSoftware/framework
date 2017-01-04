@@ -236,7 +236,7 @@ namespace BJP.Framework.Utility
             string temp = tempSplit[0].ToLower();    //首单词全部小写
             for (int i = 1; i <= tempSplit.Length-1; i++)
             {
-                if (tempSplit[i] != splitChar.ToString())
+                if (tempSplit[i] != splitChar.ToString()&& tempSplit[i] !="T")
                 temp += ConvertFirstUpper(tempSplit[i]);
             }
 

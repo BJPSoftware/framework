@@ -13,7 +13,7 @@ using BJP.Framework.Log;
 using BJP.Framework.Net.Udp;
 using BJP.Framework.Net.Tcp;
 using BJP.Framework.Utility;
-using Microsoft.Office.Interop.Excel;
+//using Microsoft.Office.Interop.Excel;
 
 namespace BJP.Test.WinApp
 {
@@ -273,123 +273,123 @@ namespace BJP.Test.WinApp
         private void doSQL_Click( object sender, EventArgs e )
         {
             //string strCon = ConfigurationManager.ConnectionStrings[ "conSQL" ].ConnectionString;
-            string strCon = "Data Source=(local);UID=sa;pwd=sql2008;DATABASE=dbDgInport";
-            string dir1 = textBox2.Text + @"txt\";
-            string dir2 = textBox2.Text + @"csv\";
+            //string strCon = "Data Source=(local);UID=sa;pwd=sql2008;DATABASE=dbDgInport";
+            //string dir1 = textBox2.Text + @"txt\";
+            //string dir2 = textBox2.Text + @"csv\";
 
-            if( false == Directory.Exists( dir1 ) )
-                Directory.CreateDirectory( dir1 );
-            if( false == Directory.Exists( dir2 ) )
-                Directory.CreateDirectory( dir2 );
+            //if( false == Directory.Exists( dir1 ) )
+            //    Directory.CreateDirectory( dir1 );
+            //if( false == Directory.Exists( dir2 ) )
+            //    Directory.CreateDirectory( dir2 );
 
-            SqlConnection conn = new SqlConnection( strCon );
-            conn.Open();
+            //SqlConnection conn = new SqlConnection( strCon );
+            //conn.Open();
 
-            string sql = "SELECT id,long_name FROM dbo.dw_route WHERE parent_id>0";
-            SqlCommand command = new SqlCommand( sql, conn );
-            SqlDataAdapter Datapter = new SqlDataAdapter( command );
-            System.Data.DataTable dt = new System.Data.DataTable();
+            //string sql = "SELECT id,long_name FROM dbo.dw_route WHERE parent_id>0";
+            //SqlCommand command = new SqlCommand( sql, conn );
+            //SqlDataAdapter Datapter = new SqlDataAdapter( command );
+            //System.Data.DataTable dt = new System.Data.DataTable();
 
-            Datapter.Fill( dt );
-            string lname = null;
-            int lid = 0;
+            //Datapter.Fill( dt );
+            //string lname = null;
+            //int lid = 0;
 
 
-            string tt = null;
-            foreach( DataRow dr in dt.Rows )
-            {
-                lid = Convert.ToInt32( dr["id"]);
-                lname = dr[ "long_name" ].ToString();
-                //string pathtxt = dir1 + lname + ".txt";
-                string pathcsv = dir2 + lname + ".csv";
+            //string tt = null;
+            //foreach( DataRow dr in dt.Rows )
+            //{
+            //    lid = Convert.ToInt32( dr["id"]);
+            //    lname = dr[ "long_name" ].ToString();
+            //    //string pathtxt = dir1 + lname + ".txt";
+            //    string pathcsv = dir2 + lname + ".csv";
 
-                sql = "select sequence,short_name,longitude,latitude,field_vchar_3 FROM dbo.dw_stop WHERE route_id={0}";
-                SqlCommand cmdStop = new SqlCommand(string.Format( sql,lid), conn );
-                SqlDataAdapter dpStop = new SqlDataAdapter( cmdStop );
-                System.Data.DataTable dtStop = new System.Data.DataTable();
-                dpStop.Fill( dtStop );
+            //    sql = "select sequence,short_name,longitude,latitude,field_vchar_3 FROM dbo.dw_stop WHERE route_id={0}";
+            //    SqlCommand cmdStop = new SqlCommand(string.Format( sql,lid), conn );
+            //    SqlDataAdapter dpStop = new SqlDataAdapter( cmdStop );
+            //    System.Data.DataTable dtStop = new System.Data.DataTable();
+            //    dpStop.Fill( dtStop );
 
-                //StreamWriter swtxt = new StreamWriter( pathtxt, true, System.Text.Encoding.Default );
-                StreamWriter swtcsv = new StreamWriter( pathcsv, true, System.Text.Encoding.Default );
+            //    //StreamWriter swtxt = new StreamWriter( pathtxt, true, System.Text.Encoding.Default );
+            //    StreamWriter swtcsv = new StreamWriter( pathcsv, true, System.Text.Encoding.Default );
 
-                swtcsv.WriteLine("sguid,slno,sname,slon,slat,liguid");
-                foreach( DataRow drStop in dtStop.Rows)
-                {
-                    tt = drStop[ "sequence" ].ToString() + "," + drStop[ "short_name" ].ToString();
-                    string scsv= drStop[ "field_vchar_3" ].ToString() + "," + drStop[ "sequence" ].ToString() + "," + drStop[ "short_name" ].ToString() + "," + drStop[ "longitude" ].ToString() + "," + drStop[ "latitude" ].ToString();
-                    //swtxt.WriteLine( tt );
-                    swtcsv.WriteLine( scsv );
-                }
-                //swtxt.Close();
-                swtcsv.Close();
-            }
-            MessageBox.Show("数据处理完毕");
+            //    swtcsv.WriteLine("sguid,slno,sname,slon,slat,liguid");
+            //    foreach( DataRow drStop in dtStop.Rows)
+            //    {
+            //        tt = drStop[ "sequence" ].ToString() + "," + drStop[ "short_name" ].ToString();
+            //        string scsv= drStop[ "field_vchar_3" ].ToString() + "," + drStop[ "sequence" ].ToString() + "," + drStop[ "short_name" ].ToString() + "," + drStop[ "longitude" ].ToString() + "," + drStop[ "latitude" ].ToString();
+            //        //swtxt.WriteLine( tt );
+            //        swtcsv.WriteLine( scsv );
+            //    }
+            //    //swtxt.Close();
+            //    swtcsv.Close();
+            //}
+            //MessageBox.Show("数据处理完毕");
         }
 
         private void doExcelFile_Click( object sender, EventArgs e )
         {
-            string dir = textBox2.Text;
-            string[] LineFiles = Directory.GetFiles( dir, "*.xls" );
-            string lfName = string.Empty;
-            try
-            {
-                foreach( string sFileName in LineFiles )
-                {
-                    string s = sFileName.Substring( sFileName.LastIndexOf( '\\' ) + 1 );
-                    lfName = s.Split( '.' )[ 0 ];    //线路名称
+            //string dir = textBox2.Text;
+            //string[] LineFiles = Directory.GetFiles( dir, "*.xls" );
+            //string lfName = string.Empty;
+            //try
+            //{
+            //    foreach( string sFileName in LineFiles )
+            //    {
+            //        string s = sFileName.Substring( sFileName.LastIndexOf( '\\' ) + 1 );
+            //        lfName = s.Split( '.' )[ 0 ];    //线路名称
 
 
-                    ExcelToDb( sFileName, "上行站点", lfName + "_S" );
-                    ExcelToDb( sFileName, "下行站点", lfName + "_X" );
-                }
+            //        ExcelToDb( sFileName, "上行站点", lfName + "_S" );
+            //        ExcelToDb( sFileName, "下行站点", lfName + "_X" );
+            //    }
 
-                MessageBox.Show( "线路处理完毕" );
-            }
-            catch (Exception ex )
-            {
-                MessageBox.Show( "线路处理异常:" + lfName + "," + ex.ToString() );
-            }
+            //    MessageBox.Show( "线路处理完毕" );
+            //}
+            //catch (Exception ex )
+            //{
+            //    MessageBox.Show( "线路处理异常:" + lfName + "," + ex.ToString() );
+            //}
 
 
         }
 
         public void ExcelToDb( string filename, string sheetname,string lname )
         {
-            string sqlCon = "Data Source=(local);UID=sa;pwd=sql2008;DATABASE=dbDgInport";
-            SqlConnection conn = new SqlConnection( sqlCon );
-            conn.Open();
+            //string sqlCon = "Data Source=(local);UID=sa;pwd=sql2008;DATABASE=dbDgInport";
+            //SqlConnection conn = new SqlConnection( sqlCon );
+            //conn.Open();
 
-            SqlCommand cmdDel = conn.CreateCommand();
-            cmdDel.CommandText = "DELETE FROM linestand WHERE lname='" + lname + "'";
-            int del = cmdDel.ExecuteNonQuery();
+            //SqlCommand cmdDel = conn.CreateCommand();
+            //cmdDel.CommandText = "DELETE FROM linestand WHERE lname='" + lname + "'";
+            //int del = cmdDel.ExecuteNonQuery();
 
-            System.Data.DataTable dt;
-            string strCon = "Provider=Microsoft.Jet.OLEDB.4.0;" +
-                                            "Extended Properties=Excel 8.0;" +
-                                            "data source=" + filename;
-            OleDbConnection myConn = new OleDbConnection( strCon );
-            string strCom = " SELECT * FROM [" + sheetname  + "$]";
-            myConn.Open();
-            OleDbDataAdapter myCommand = new OleDbDataAdapter( strCom, myConn );
-            dt = new System.Data.DataTable();
-            myCommand.Fill( dt );
-            myConn.Close();
-            int i = 1;
+            //System.Data.DataTable dt;
+            //string strCon = "Provider=Microsoft.Jet.OLEDB.4.0;" +
+            //                                "Extended Properties=Excel 8.0;" +
+            //                                "data source=" + filename;
+            //OleDbConnection myConn = new OleDbConnection( strCon );
+            //string strCom = " SELECT * FROM [" + sheetname  + "$]";
+            //myConn.Open();
+            //OleDbDataAdapter myCommand = new OleDbDataAdapter( strCom, myConn );
+            //dt = new System.Data.DataTable();
+            //myCommand.Fill( dt );
+            //myConn.Close();
+            //int i = 1;
 
-            foreach( DataRow drStop in dt.Rows )
-            {
-                string sname = drStop[ 0 ].ToString().Split( '#' )[ 2 ];
-                string slon = drStop[ 3 ].ToString().Substring( 1 );
-                string slat = drStop[ 2 ].ToString().Substring( 1 );
-                string slguid = Utility.CreateGuidLeft( 36, i.ToString() + "STANDDATA", '0', true );
+            //foreach( DataRow drStop in dt.Rows )
+            //{
+            //    string sname = drStop[ 0 ].ToString().Split( '#' )[ 2 ];
+            //    string slon = drStop[ 3 ].ToString().Substring( 1 );
+            //    string slat = drStop[ 2 ].ToString().Substring( 1 );
+            //    string slguid = Utility.CreateGuidLeft( 36, i.ToString() + "STANDDATA", '0', true );
 
-                string sqlStop = "INSERT INTO linestand(slno,sname,slon,slat,lname,slguid) VALUES({0},'{1}',{2},{3},'{4}','{5}')";
-                SqlCommand cmdStop = conn.CreateCommand();
-                cmdStop.CommandText = string.Format(sqlStop,i,sname,Convert.ToDecimal(slon),Convert.ToDecimal(slat), lname, slguid );
-                int ret = cmdStop.ExecuteNonQuery();
-                i++;
+            //    string sqlStop = "INSERT INTO linestand(slno,sname,slon,slat,lname,slguid) VALUES({0},'{1}',{2},{3},'{4}','{5}')";
+            //    SqlCommand cmdStop = conn.CreateCommand();
+            //    cmdStop.CommandText = string.Format(sqlStop,i,sname,Convert.ToDecimal(slon),Convert.ToDecimal(slat), lname, slguid );
+            //    int ret = cmdStop.ExecuteNonQuery();
+            //    i++;
 
-            }
+            //}
         }
 
         private void btnDoData_Click( object sender, EventArgs e )
@@ -398,59 +398,62 @@ namespace BJP.Test.WinApp
             FindNotEixtsStand();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void FindNotEixtsStand()
         {
-            //线路站点文件目录
-            string dir = txtInPath.Text;
+            ////线路站点文件目录
+            //string dir = txtInPath.Text;
             
-            //里面的文件清单
-            string[] LineFiles = Directory.GetFiles( txtInPath.Text, "*.*" );
+            ////里面的文件清单
+            //string[] LineFiles = Directory.GetFiles( txtInPath.Text, "*.*" );
 
-            //总的站点数
-            Int32 iCount = 1;
+            ////总的站点数
+            //Int32 iCount = 1;
 
-            string sqlCon = "Data Source=(local);UID=sa;pwd=sql2008;DATABASE=dbDgInport";
-            SqlConnection conn = new SqlConnection( sqlCon );
-            conn.Open();
+            //string sqlCon = "Data Source=(local);UID=sa;pwd=sql2008;DATABASE=dbDgInport";
+            //SqlConnection conn = new SqlConnection( sqlCon );
+            //conn.Open();
 
-            string saveName = @"f:\临时文件\无坐标站点.csv";
-            StreamWriter sw = new StreamWriter( saveName, true, System.Text.Encoding.Default );
+            //string saveName = @"f:\临时文件\无坐标站点.csv";
+            //StreamWriter sw = new StreamWriter( saveName, true, System.Text.Encoding.Default );
 
-            foreach( string fileName in LineFiles )
-            {
-                //不带后缀的文件名
-                string lastFileName = Utility.GetFileName( fileName, false );
+            //foreach( string fileName in LineFiles )
+            //{
+            //    //不带后缀的文件名
+            //    string lastFileName = Utility.GetFileName( fileName, false );
 
-                //打开excel文件,放到数据表中
-                System.Data.DataTable dt = ExcelHelper.ReadExelToTable(fileName,0);
+            //    //打开excel文件,放到数据表中
+            //    System.Data.DataTable dt = ExcelHelper.ReadExelToTable(fileName,0);
 
-                //处理Excel数据
-                int slno = 1;   //站点序号
-                StringBuilder sbSQL = new StringBuilder();
-                foreach( DataRow drStop in dt.Rows )
-                {
-                    string sname = drStop[ 1 ].ToString();    //站名
-                    string slon = drStop[ 2 ].ToString();     //经度
-                    if( slon == string.Empty )
-                        slon = "0";
-                    string slat = drStop[ 3 ].ToString();     //纬度
-                    if( slat == string.Empty )
-                        slat = "0";
-                    string ismain = drStop[ 4 ].ToString();  //上下行标识
+            //    //处理Excel数据
+            //    int slno = 1;   //站点序号
+            //    StringBuilder sbSQL = new StringBuilder();
+            //    foreach( DataRow drStop in dt.Rows )
+            //    {
+            //        string sname = drStop[ 1 ].ToString();    //站名
+            //        string slon = drStop[ 2 ].ToString();     //经度
+            //        if( slon == string.Empty )
+            //            slon = "0";
+            //        string slat = drStop[ 3 ].ToString();     //纬度
+            //        if( slat == string.Empty )
+            //            slat = "0";
+            //        string ismain = drStop[ 4 ].ToString();  //上下行标识
 
-                    string slguid = Utility.CreateGuidLeft( 36, iCount.ToString() + "STANDDATA", '0', true );  //slguid
+            //        string slguid = Utility.CreateGuidLeft( 36, iCount.ToString() + "STANDDATA", '0', true );  //slguid
 
-                    string sqlStop = "INSERT INTO linestand(slno,sname,slon,slat,slguid,lname,ismain) VALUES({0},'{1}',{2},{3},'{4}','{5}','{6}')";
-                    SqlCommand cmdStop = conn.CreateCommand();
-                    cmdStop.CommandText = string.Format( sqlStop, slno, sname, Convert.ToDecimal( slon ), Convert.ToDecimal( slat ),  slguid , lastFileName ,ismain);
-                    int ret = cmdStop.ExecuteNonQuery();
+            //        string sqlStop = "INSERT INTO linestand(slno,sname,slon,slat,slguid,lname,ismain) VALUES({0},'{1}',{2},{3},'{4}','{5}','{6}')";
+            //        SqlCommand cmdStop = conn.CreateCommand();
+            //        cmdStop.CommandText = string.Format( sqlStop, slno, sname, Convert.ToDecimal( slon ), Convert.ToDecimal( slat ),  slguid , lastFileName ,ismain);
+            //        int ret = cmdStop.ExecuteNonQuery();
 
-                    slno++;
-                    iCount++;
-                }
-            }
-            sw.Close();
-            MessageBox.Show( "处理完毕" );
+            //        slno++;
+            //        iCount++;
+            //    }
+            //}
+            //sw.Close();
+            //MessageBox.Show( "处理完毕" );
         }
 
         private void btnSelectFile_Click( object sender, EventArgs e )
