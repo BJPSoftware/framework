@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.9, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
     </Reference>
@@ -70,8 +71,10 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,6 +87,8 @@
     <Compile Include="Code\CustomTextTemplatingEngineHost.cs" />
     <Compile Include="Code\EntityClassInfo.cs" />
     <Compile Include="Code\EntityClassPropertyInfo.cs" />
+    <Compile Include="Utility\DateSerializer.cs" />
+    <Compile Include="Utility\DateTimeSerializer.cs" />
     <Compile Include="Utility\Enumera.cs" />
     <Compile Include="Log\LogHelper.cs" />
     <Compile Include="Net\Tcp\Buffers.cs" />

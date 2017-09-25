@@ -13,6 +13,7 @@ using BJP.Framework.Log;
 using BJP.Framework.Net.Udp;
 using BJP.Framework.Net.Tcp;
 using BJP.Framework.Utility;
+using System.Collections.Generic;
 //using Microsoft.Office.Interop.Excel;
 
 namespace BJP.Test.WinApp
@@ -39,11 +40,34 @@ namespace BJP.Test.WinApp
         /// <param name="e"></param>
         private void btnLogTest_Click( object sender, EventArgs e )
         {
-            LogHelper.Info( "日志测试" );
-            LogHelper.Info( "分类日志测试", "test" );
-            LogHelper.Debug( "日志测试" );
-            LogHelper.Debug( "日志测试" );
-            LogHelper.Error( "日志测试" );
+            //LogHelper.Info( "日志测试" );
+            //LogHelper.Info( "分类日志测试", "test" );
+            //LogHelper.Debug( "日志测试" );
+            //LogHelper.Debug( "日志测试" );
+            //LogHelper.Error( "日志测试" );
+
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("1", "a");
+            dic.Add("10", "b");
+            dic.Add("11", "b");
+            dic.Add("12", "b");
+            dic.Add("13", "e");
+            dic.Add("14", "f");
+            dic.Add("15", "g");
+            dic.Add("16", "h");
+
+            List<string> ss = new List<string>();
+            ss.Add("5");
+            ss.Add("7");
+            ss.Add("16");
+
+            for (int i = 0; i < ss.Count; i++)
+            {
+                if (!dic.ContainsKey(ss[i])) {
+                    LogHelper.Info(ss[i] + "未找到");
+                }
+            }
+
 
         }
 
