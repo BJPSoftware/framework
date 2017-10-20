@@ -105,6 +105,7 @@
     <Compile Include="Repository\DbHelper.cs" />
     <Compile Include="Repository\FluentNhibernateHelper.cs" />
     <Compile Include="Utility\ConvertHelper.cs" />
+    <Compile Include="Utility\ExcelHelper.cs" />
     <Compile Include="Utility\GpsCorrect.cs" />
     <Compile Include="Utility\JsonBuilder.cs" />
     <Compile Include="Utility\Utility.cs" />
