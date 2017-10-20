@@ -1,9 +1,7 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Data.OleDb;
 using System.IO;
 using System.Text;
-using Microsoft.Office.Core;
 using Microsoft.Office.Interop.Excel;
 
 

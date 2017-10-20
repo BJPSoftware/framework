@@ -14,7 +14,7 @@ using BJP.Framework.Net.Udp;
 using BJP.Framework.Net.Tcp;
 using BJP.Framework.Utility;
 using System.Collections.Generic;
-//using Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
 
 namespace BJP.Test.WinApp
 {
